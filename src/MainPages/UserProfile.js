@@ -14,6 +14,7 @@ import { useParams, useNavigate, useLocation, Link } from "react-router-dom";
 import axios from "axios";
 import HideAppBar from "./AppBar2";
 import { HomeContext } from "../Context/context";
+import LogoCarousel from "../components/LogoCarousel";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,7 +31,7 @@ const UserPage = () => {
   // const user = location.state.user;
   const user = useContext(HomeContext);
   const token = localStorage.getItem("token");
-  //   console.log(token);
+  console.log(token);
   const history = useNavigate();
   // const [conn,setConn] = useState();
 
@@ -65,11 +66,14 @@ const UserPage = () => {
 
   return (
     <React.Fragment>
-      <Paper className={classes.root}>
+      <div style={{ padding: '50px', textAlign: 'center' }}>
+      <h1>Logo Carousel</h1>
+      <LogoCarousel />
+    </div>
+      {/* <Paper className={classes.root}>
         <HideAppBar />
         {isuserData && (
           <>
-            {/* <h1>cdsdas</h1> */}
             <Box sx={{mt:40,padding:4}}>
             <Button variant="outlined" size="large" href={userData.linkedin}>
               LinkedIn
@@ -92,7 +96,7 @@ const UserPage = () => {
             </Box>
           </>
         )}
-      </Paper>
+      </Paper> */}
     </React.Fragment>
   );
 };
